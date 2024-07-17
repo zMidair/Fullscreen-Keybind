@@ -14,5 +14,8 @@
 		"utility",
 		"universal",
 		"offline"
-	]
+	],
+	"links": {
+		"source": "https://github.com/zMidair/Fullscreen-Keybind"
+	}
 }
