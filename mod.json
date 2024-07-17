@@ -17,5 +17,11 @@
 	],
 	"links": {
 		"source": "https://github.com/zMidair/Fullscreen-Keybind"
-	}
+	},
+	"dependencies": [
+        {
+            "id": "geode.custom-keybinds",
+            "version": "*"
+        }
+    ]
 }
