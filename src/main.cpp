@@ -28,7 +28,7 @@ $execute {
         // Name
         "Toggle Fullscreen",
         // Description, leave empty for none
-        "",
+        "Toggles the fullscreen setting upon press.",
         // Default binds
         { Keybind::create(KEY_F11, Modifier::None) },
         // Category; use slashes for specifying subcategories. See the
