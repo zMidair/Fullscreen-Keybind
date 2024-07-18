@@ -23,7 +23,7 @@
         {
             "id": "geode.custom-keybinds",
             "version": ">=1.7.1",
-			"importance": "required"
+	    "importance": "required"
         }
     ]
 }
