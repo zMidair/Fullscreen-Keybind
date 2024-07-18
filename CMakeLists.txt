@@ -18,4 +18,4 @@ endif()
 
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
-setup_geode_mod(${PROJECT_NAME})
+setup_geode_mod(${PROJECT_NAME} EXTERNALS geode.custom-keybinds:1.7.1)
