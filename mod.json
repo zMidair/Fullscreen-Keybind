@@ -6,7 +6,7 @@
 	},
 	"id": "midair.fullscreen_keybind",
 	"name": "Fullscreen Keybind",
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"developer": "Midair",
 	"description": "Allows you to quickly toggle fullscreen with F11!",
 	"tags": [
@@ -23,7 +23,7 @@
         {
             "id": "geode.custom-keybinds",
             "version": ">=1.7.1",
-	    "importance": "required"
+			"importance": "required"
         }
     ]
 }

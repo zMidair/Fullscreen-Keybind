@@ -5,6 +5,6 @@ Allows you to <cg>quickly toggle fullscreen</c> without going to the settings an
 Customize the keybind in the <cb>Custom Keybinds</c> menu.
 
 Report bugs by DMing me on discord: <cb>@midairgd</c>
-
 Logo by me and @slideglide
+
 <cg>Thanks for using my mod :)</c>
