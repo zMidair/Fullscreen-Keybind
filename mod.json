@@ -6,7 +6,7 @@
 	},
 	"id": "midair.fullscreen_keybind",
 	"name": "Fullscreen Keybind",
-	"version": "v1.0.1",
+	"version": "v1.1.0",
 	"developer": "Midair",
 	"description": "Allows you to quickly toggle fullscreen with F11!",
 	"tags": [
