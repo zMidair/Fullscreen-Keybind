@@ -43,11 +43,13 @@ $execute {
         { Keybind::create(KEY_F11, Modifier::None) },
         // Category; use slashes for specifying subcategories. See the
         // Category class for default categories
-        "Fullscreen Keybinds"
+        "Fullscreen Keybinds",
+        // Repeatable
+        false
     });
 
 	new EventListener([=](InvokeBindEvent* event) {
-    	toggleFullscreen();
+    	if(!event->isDown()) toggleFullscreen();
 	return ListenerResult::Propagate;
     }, InvokeBindFilter(nullptr, "toggle_fullscreen"_spr));
 }
