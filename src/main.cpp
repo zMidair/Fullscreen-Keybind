@@ -1,24 +1,34 @@
 #include <Geode/Geode.hpp>
 #include <geode.custom-keybinds/include/Keybinds.hpp>
-#include <Geode/modify/GameManager.hpp>
+#include <Geode/modify/MenuLayer.hpp>
 using namespace geode::prelude;
 using namespace keybinds;
 
 auto* GM = GameManager::sharedState();
-bool keyDown = false;
+bool isSwitching = false;
 
-void toggleFullscreen(bool down)
+void toggleFullscreen()
 {
-	if(down && !keyDown)
-	{
-		// Prevent the user from holding the F11 key, crashing the game
-		keyDown = down;
+	if(!isSwitching)
+    {
+        if(LevelEditorLayer::get() != nullptr)
+        {
+            FLAlertLayer::create(
+                "Fullscreen Switch",
+                "You <cr>cannot</c> switch fullscreen <cy>in the editor</c>. <cg>Save your level and try again.</c>",
+                "Okay"
+            )->show();
+            return;
+        }
+        else
+        {
+            isSwitching = true;
 
-		bool CurrentValue = GM->getGameVariable("0025");
-		GM->setGameVariable("0025", !CurrentValue);
-		GM->reloadAll(true, CurrentValue, true);
-	}
-	if(!down && keyDown) keyDown = down;
+            bool CurrentValue = GM->getGameVariable("0025");
+            GM->setGameVariable("0025", !CurrentValue);
+            GM->reloadAll(true, CurrentValue, true);
+        }
+    }
 }
 
 $execute {
@@ -37,7 +47,16 @@ $execute {
     });
 
 	new EventListener([=](InvokeBindEvent* event) {
-    	toggleFullscreen(event->isDown());
+    	toggleFullscreen();
 	return ListenerResult::Propagate;
     }, InvokeBindFilter(nullptr, "toggle_fullscreen"_spr));
 }
+
+struct ModifiedMenuLayer : Modify<ModifiedMenuLayer, MenuLayer>
+{
+    virtual bool init()
+    {
+        isSwitching = false;
+        return MenuLayer::init();
+    }
+};
