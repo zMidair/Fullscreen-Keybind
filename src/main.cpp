@@ -11,23 +11,12 @@ void toggleFullscreen()
 {
 	if(!isSwitching)
     {
-        if(LevelEditorLayer::get() != nullptr)
-        {
-            FLAlertLayer::create(
-                "Fullscreen Switch",
-                "You <cr>cannot</c> switch fullscreen <cy>in the editor</c>. <cg>Save your level and try again.</c>",
-                "Okay"
-            )->show();
-            return;
-        }
-        else
-        {
-            isSwitching = true;
+        if(GJBaseGameLayer::get()) return;
 
-            bool CurrentValue = GM->getGameVariable("0025");
-            GM->setGameVariable("0025", !CurrentValue);
-            GM->reloadAll(true, CurrentValue, true);
-        }
+        isSwitching = true;
+        bool CurrentValue = GM->getGameVariable("0025");
+        GM->setGameVariable("0025", !CurrentValue);
+        GM->reloadAll(true, CurrentValue, true);
     }
 }
 
@@ -43,7 +32,7 @@ $execute {
         { Keybind::create(KEY_F11, Modifier::None) },
         // Category; use slashes for specifying subcategories. See the
         // Category class for default categories
-        "Fullscreen Keybinds",
+        "Fullscreen Keybind",
         // Repeatable
         false
     });
